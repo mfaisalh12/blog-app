@@ -1,4 +1,4 @@
-import { createBrowserRouter, RouterProvider, Outlet, Route } from "react-router-dom";
+import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom";
 
 import Navbar from "./components/Navbar/Navbar";
 import Footer from "./components/Footer/Footer";
@@ -55,13 +55,7 @@ const router = createBrowserRouter([
 ]);
 
 function App() {
-	return (
-		<div className="app">
-			<div className="container">
-				<RouterProvider router={router} />
-			</div>
-		</div>
-	);
+	return <RouterProvider router={router} />;
 }
 
 export default App;

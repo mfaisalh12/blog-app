@@ -1,0 +1,38 @@
+.bg-orange {
+	background: var(--orange);
+}
+.img-sign {
+	width: 300px;
+	height: auto;
+	align-self: center;
+}
+.content {
+	width: 100%;
+	position: relative;
+}
+.input-sign {
+	border-bottom: 1px solid var(--orange);
+	transition: 0.3s;
+}
+.input-sign:focus {
+	outline: none;
+}
+.input-sign ~ .focus-border {
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	width: 0;
+	height: 2px;
+	background-color: var(--orange);
+	transition: 0.4s;
+}
+
+.input-sign:focus ~ .focus-border {
+	width: 100%;
+	transition: 0.4s;
+}
+
+::placeholder {
+	color: #ccc;
+	font-weight: 300;
+}
