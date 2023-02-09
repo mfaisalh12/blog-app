@@ -1,7 +1,11 @@
+import { useState } from "react";
 import { Link } from "react-router-dom";
+import { Icon } from "@iconify/react";
+
 import SignLayout from "../Layout/Sign/SignLayout";
 
 const Login = () => {
+	const [passwordVisible, setPasswordVisible] = useState(false);
 	return (
 		<SignLayout>
 			<h3 className="mt-8 font-medium text-2xl">Sign In</h3>
@@ -17,7 +21,16 @@ const Login = () => {
 					<label htmlFor="password" className="text-lg">
 						Password
 					</label>
-					<input type="text" className="w-full mt-1 py-2 input-sign" />
+
+					<input
+						type={passwordVisible ? "text" : "password"}
+						className="w-full mt-1 py-2 input-sign"
+					/>
+					<Icon
+						className="absolute top-10 right-0 text-lg md:text-2xl text-[var(--orange)] cursor-pointer"
+						icon={passwordVisible ? "bxs:show" : "bxs:hide"}
+						onClick={() => setPasswordVisible(!passwordVisible)}
+					/>
 					<span className="focus-border"></span>
 				</div>
 				<button className="btn-orange" type="submit">
@@ -25,7 +38,10 @@ const Login = () => {
 				</button>
 			</form>
 			<p className="font-light text-sm mt-3">
-				Don't have an account? <Link className="text-blue-500 hover:text-blue-700">Sign-up</Link>
+				Don't have an account?{" "}
+				<Link to="/signup" className="text-blue-500 hover:text-blue-700 hover:font-[400]">
+					Sign-up
+				</Link>
 			</p>
 		</SignLayout>
 	);
