@@ -12,7 +12,7 @@ const SignLayout = (props) => {
 				</div>
 			</div>
 			<div>
-				<div className="container mx-auto h-full lg:py-20">
+				<div className="container mx-auto h-full lg:py-14">
 					<img src={logo} className="self-center max-w-[40px] md:max-w-[91px]" alt="logo" />
 					{props.children}
 				</div>

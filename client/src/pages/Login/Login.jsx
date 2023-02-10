@@ -8,7 +8,7 @@ const Login = () => {
 	const [passwordVisible, setPasswordVisible] = useState(false);
 	return (
 		<SignLayout>
-			<h3 className="mt-8 font-medium text-2xl">Sign In</h3>
+			<h3 className="mt-6 md:mt-16 font-medium text-2xl">Sign In</h3>
 			<form>
 				<div className="mt-6 content">
 					<label htmlFor="email" className="text-lg">
@@ -40,7 +40,7 @@ const Login = () => {
 			<p className="font-light text-sm mt-3">
 				Don't have an account?{" "}
 				<Link to="/signup" className="text-blue-500 hover:text-blue-700 hover:font-[400]">
-					Sign-up
+					Sign up
 				</Link>
 			</p>
 		</SignLayout>
