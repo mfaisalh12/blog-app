@@ -1,30 +1,19 @@
-import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
-import Navbar from "./components/Navbar/Navbar";
-import Footer from "./components/Footer/Footer";
 import Home from "./pages/Home/Home";
 import Content from "./pages/Content/Content";
 import Write from "./pages/Write/Write";
 import Dashboard from "./pages/Dashboard/Dashboard";
 import Login from "./pages/Login/Login";
 import Register from "./pages/Register/Register";
+import MainLayout from "./pages/Layout/Main/MainLayout";
 
 import "./App.css";
-
-const Layout = () => {
-	return (
-		<>
-			<Navbar />
-			<Outlet />
-			<Footer />
-		</>
-	);
-};
 
 const router = createBrowserRouter([
 	{
 		path: "/",
-		element: <Layout />,
+		element: <MainLayout />,
 		children: [
 			{
 				path: "/",

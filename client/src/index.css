@@ -4,7 +4,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap");
 
 :root {
-	--white: #ffffff;
 	--gray-light: #ececeb;
 	--orange: #f9a828;
 	--dark-tosca: #07617d;
@@ -27,6 +26,9 @@ body,
 
 @layer components {
 	.btn-orange {
-		@apply mt-10 py-3 px-4 w-[100%] bg-[var(--orange)] rounded-md text-white font-medium hover:bg-orange-400 duration-300;
+		@apply mt-10 py-3 px-4 bg-[var(--orange)] rounded-lg text-white font-medium hover:bg-orange-400 duration-300;
+	}
+	.btn-outline-orange {
+		@apply mt-10 py-2 px-4 bg-[var(--white)] border border-[var(--orange)] rounded-lg text-[var(--orange)] font-medium hover:bg-[var(--orange)] hover:text-white duration-300;
 	}
 }

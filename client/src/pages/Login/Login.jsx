@@ -33,7 +33,7 @@ const Login = () => {
 					/>
 					<span className="focus-border"></span>
 				</div>
-				<button className="btn-orange" type="submit">
+				<button className="btn-orange w-[100%]" type="submit">
 					Sign in
 				</button>
 			</form>

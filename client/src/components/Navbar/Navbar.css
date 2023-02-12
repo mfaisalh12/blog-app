@@ -1,0 +1,35 @@
+.circleBehind {
+	position: relative;
+}
+
+.circleBehind:before,
+.circleBehind:after {
+	position: absolute;
+	top: 11px;
+	left: 50%;
+	width: 60px;
+	height: 60px;
+	border: 3px solid var(--orange);
+	transform: translateX(-50%) translateY(-50%) scale(0.8);
+	border-radius: 50%;
+	background: transparent;
+	content: "";
+	opacity: 0;
+	transition: all 0.3s;
+	z-index: -1;
+}
+
+.circleBehind:after {
+	border-width: 1px;
+	transition: all 0.4s;
+}
+
+.circleBehind:hover:before {
+	opacity: 1;
+	transform: translateX(-50%) translateY(-50%) scale(1);
+}
+
+.circleBehind:hover:after {
+	opacity: 1;
+	transform: translateX(-50%) translateY(-50%) scale(1.3);
+}
