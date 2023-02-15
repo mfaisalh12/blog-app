@@ -7,7 +7,7 @@ import "./Navbar.css";
 const Navbar = () => {
 	const [solidNav, setSolidNav] = useState(false);
 	const changeSolidNav = () => {
-		if (window.scrollY >= 40) {
+		if (window.scrollY >= 20) {
 			setSolidNav(true);
 		} else {
 			setSolidNav(false);
@@ -18,8 +18,8 @@ const Navbar = () => {
 		<div
 			className={
 				solidNav
-					? "sticky top-0 container bg-transparent z-50 transition-all ease-in duration-300 backdrop-filter backdrop-blur-lg"
-					: "sticky top-0 container bg-transparent z-50 transition-all ease-in duration-300"
+					? "sticky top-0 container bg-transparent z-50 transition-all ease-in duration-200 backdrop-filter backdrop-blur-lg"
+					: "sticky top-0 container bg-transparent z-50 transition-all ease-in duration-100"
 			}
 		>
 			<nav className="flex justify-between items-center ">
