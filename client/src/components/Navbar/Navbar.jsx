@@ -1,27 +1,11 @@
-import { useState } from "react";
 import { NavLink } from "react-router-dom";
 import Logo from "../../assets/logo.png";
 
 import "./Navbar.css";
 
 const Navbar = () => {
-	const [solidNav, setSolidNav] = useState(false);
-	const changeSolidNav = () => {
-		if (window.scrollY >= 20) {
-			setSolidNav(true);
-		} else {
-			setSolidNav(false);
-		}
-	};
-	window.addEventListener("scroll", changeSolidNav);
 	return (
-		<div
-			className={`fixed top-0 container bg-transparent z-50 transition-all ease-in ${
-				solidNav
-					? "duration-200 backdrop-filter backdrop-blur-lg backdrop-brightness-50"
-					: "duration-100"
-			}`}
-		>
+		<div className="fixed top-0 container bg-transparent z-50 backdrop-filter backdrop-blur-lg backdrop-brightness-50">
 			<nav className="flex justify-between items-center ">
 				<NavLink to="/">
 					<img src={Logo} alt="" className="max-w-[60px] md:max-w-[80px]" />

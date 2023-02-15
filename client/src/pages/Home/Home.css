@@ -3,7 +3,6 @@
 		url("../../assets/jumbotron.png") no-repeat center center;
 	background-size: cover;
 	height: 760px;
-	margin-top: -80px;
 	z-index: -1;
 }
 h1 .stroke {
