@@ -16,11 +16,11 @@ const Navbar = () => {
 	window.addEventListener("scroll", changeSolidNav);
 	return (
 		<div
-			className={
+			className={`fixed top-0 container bg-transparent z-50 transition-all ease-in ${
 				solidNav
-					? "sticky top-0 container bg-transparent z-50 transition-all ease-in duration-200 backdrop-filter backdrop-blur-lg"
-					: "sticky top-0 container bg-transparent z-50 transition-all ease-in duration-100"
-			}
+					? "duration-200 backdrop-filter backdrop-blur-lg backdrop-brightness-50"
+					: "duration-100"
+			}`}
 		>
 			<nav className="flex justify-between items-center ">
 				<NavLink to="/">
