@@ -33,7 +33,7 @@ export const login = (req, res) => {
 
 	db.query(sql, [req.body.email], (err, data) => {
 		if (err) return res.json(err);
-		if (data.length === 0) return res.status(404).json("User Not Found!");
+		if (data.length === 0) return res.status(404).json("Email Not Found!");
 
 		// Check Password
 		const isPasswordCorrect = bcrypt.compareSync(req.body.password, data[0].password);
@@ -48,9 +48,7 @@ export const login = (req, res) => {
 				httpOnly: true,
 			})
 			.status(200)
-			.json({
-				access_token: token,
-			});
+			.json(other);
 	});
 };
 
