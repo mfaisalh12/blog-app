@@ -4,11 +4,14 @@ import jwt from "jsonwebtoken";
 
 export const register = (req, res) => {
 	// CHECK EXISTING USER
-	const sql = "SELECT * FROM users WHERE email = ? OR name = ?";
+	if (Object.keys(req.body).length === 0) {
+		return res.status(400).json("Content cannot be empty");
+	}
 
-	db.query(sql, [req.body.email, req.body.name], (err, data) => {
+	const sql = "SELECT * FROM users WHERE email = ?";
+	db.query(sql, [req.body.email], (err, data) => {
 		if (err) return res.json(err);
-		if (data.length) return res.status(409).json("User already exist");
+		if (data.length) return res.status(409).json("Email already exist");
 
 		// Hash the password and create a user
 		const salt = bcrypt.genSaltSync(10);

@@ -14,7 +14,7 @@ const Login = () => {
 					<label htmlFor="email" className="text-lg">
 						Email
 					</label>
-					<input type="email" className="w-full mt-1 py-2 input-sign" />
+					<input type="email" className="w-full mt-1 py-2 input-sign" required />
 					<span className="focus-border"></span>
 				</div>
 				<div className="mt-6 content">
@@ -25,6 +25,7 @@ const Login = () => {
 					<input
 						type={passwordVisible ? "text" : "password"}
 						className="w-full mt-1 py-2 input-sign"
+						required
 					/>
 					<Icon
 						className="absolute top-10 right-0 text-lg md:text-2xl text-[var(--orange)] cursor-pointer"
