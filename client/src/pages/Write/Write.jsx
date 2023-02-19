@@ -1,5 +1,5 @@
-import { useContext, useEffect, useState } from "react";
-import { NavLink, useNavigate } from "react-router-dom";
+import { useContext, useState } from "react";
+import { NavLink } from "react-router-dom";
 import TagsInput from "../../components/TagsInput/TagsInput";
 import { AuthContext } from "../../context/AuthContext";
 
@@ -15,7 +15,7 @@ const Write = () => {
 		<div className="container mt-24 mb-4">
 			{!currentUser ? (
 				<div className="text-center min-h-[65vh]">
-					<div className="absolute top-1/2 left-1/2 translate-y-[-50%] translate-x-[-50%]">
+					<div className="absolute top-1/2 left-1/2 translate-y-[-100%] translate-x-[-50%]">
 						<h1 className="font-medium text-4xl">Please Login!</h1>
 						<p className="mt-2 mb-6">You have to login first to access this feature</p>
 						<NavLink to="/signin" className="btn-orange">
