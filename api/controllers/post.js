@@ -31,11 +31,9 @@ export const getPostById = (req, res) => {
 							GROUP BY categories_group `;
 	db.query(sql, [req.params.id], (err, data) => {
 		if (err) return res.status(500).json(err);
-		if (data[0]) {
-			return res.status(200).json(data[0]);
-		} else {
-			return res.status(400).json("Data Not Found");
-		}
+		if (!data[0]) return res.status(400).json("Data Not Found");
+
+		return res.status(200).json(data[0]);
 	});
 };
 
@@ -46,20 +44,21 @@ export const addPost = (req, res) => {
 	jwt.verify(token, "jwtkey", (err, userInfo) => {
 		if (err) return res.status(403).json("Token is not valid!");
 
-		const q = "INSERT INTO posts(`title`, `desc`, `img`, `cat`, `date`,`uid`) VALUES (?)";
+		const getIdCategory = "SELECT * FROM categories WHERE category = ?";
+		const valueCategory = [req.body.category];
+		db.query(getIdCategory, valueCategory, (err, data) => {
+			if (!data[0]) return res.status(200).json("Data category not found");
+			const sql = "INSERT INTO posts(title, description, image, id_user) VALUES (?)";
+			const values = [req.body.title, req.body.desc, req.body.img, userInfo.id];
 
-		const values = [
-			req.body.title,
-			req.body.desc,
-			req.body.img,
-			req.body.cat,
-			req.body.date,
-			userInfo.id,
-		];
-
-		db.query(q, [values], (err, data) => {
-			if (err) return res.status(500).json(err);
-			return res.json("Post has been created.");
+			db.query(sql, [values], (err, result) => {
+				const sql2 = "INSERT INTO category_post(id_post, id_category) VALUES (?)";
+				const values2 = [result.insertId, data[0].id];
+				db.query(sql2, [values2], (err, result) => {
+					if (err) return res.status(500).json(err);
+					return res.json("Post has been created.");
+				});
+			});
 		});
 	});
 };
