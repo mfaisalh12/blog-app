@@ -8,8 +8,9 @@ export const getPosts = (req, res) => {
 									INNER JOIN categories ON category_post.id_category = categories.id
 									GROUP BY id_post
 							)
-							SELECT id, title, description, image, id_user, categories_group FROM posts 
+							SELECT posts.id, title, description, image, posts.created_at, users.name, users.picture AS user_image, cp.categories_group FROM posts 
 							JOIN cp ON cp.id_post = posts.id
+							INNER JOIN users ON posts.id_user = users.id
 							GROUP BY categories_group `;
 	db.query(sql, (err, data) => {
 		if (err) return res.status(500).send(err);
